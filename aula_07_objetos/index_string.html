@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index</title>
+	<meta name="author" content="User"/>
+	<script type=text/javascript>
+	
+	
+		function removerEspacosBrancos(texto)
+		{
+			var resultado = "";
+			
+			/* primeira forma percorrendo todas as posições do texto < length e amount em resultado.
+ 
+			 
+			for(var i = 0; i < texto.length; i++)
+			{
+				if(i < texto.length && texto.substr(i, 1) != " ")
+					resultado += texto.substr(i,1);
+				
+			}
+			return resultado;
+			*/
+			
+			//apenas os caracteres que quer remover
+			
+			while(texto.indexOf(" ") != -1)
+			{
+				var parte1 = texto.substring(0, texto.indexOf(" "));
+				var parte2 = texto.substring(texto.indexOf(" ")+1, texto.length);
+				texto = parte1+parte2;	
+				
+			}
+			return texto;
+			
+			
+			
+		}
+		//var valor = prompt ("Digite um texto: ", "");
+		//alert(removerEspacosBrancos(valor));
+		function transformarNumeroMoeda(num)
+		{
+			var aux = num/100;
+			aux = aux.toString();
+			aux = aux.indexOf(".") == -1 ? aux+"." : aux;
+			
+			aux = aux.toString().replace(".", ",");
+			
+			
+			var parteInteira = aux.substring(0, aux.indexOf(","));
+			//if(aux.indexOf(",")==-1)
+				//parteInteira = 0;
+				
+			var parteFracionaria = aux.substring(aux.indexOf(","), aux.length);
+			//parteFracionaria = aux.indexOf(",") == -1 ?",00" : parteFracionaria.length <2? parteFracionaria+"00" :parteFracionaria.length ==2? parteFracionaria+"0" :parteFracionaria;
+			parteFracionaria = parteFracionaria.length < 2 ? parteFracionaria+"00" : parteFracionaria.length ==2? parteFracionaria+"0" :parteFracionaria;
+			
+			if(parteInteira.length < 4) 
+			  return "R$ "+parteInteira+parteFracionaria;
+			  
+			var resultado = "";
+			for(i = parteInteira.length; i >3;){
+				
+				resultado = "."+parteInteira.substring(i-3, i)+resultado;
+				parteInteira = parteInteira.substring(0, i-3);
+				i = i - 3;
+				
+			}
+			return "R$ "+parteInteira+resultado+parteFracionaria; 
+			
+		}
+		var valor = prompt("Digite um valor: ","");
+		//alert(transformarNumeroMoeda(valor));
+		document.write("<br> "+transformarNumeroMoeda(valor).italics().fontsize(50).fontcolor("red").blink());
+		
+	</script>
+	
+	<!-- Date: 2022-05-25 -->
+</head>
+<body>
+</body>
+</html>
+

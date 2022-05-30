@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index_date</title>
+	<meta name="author" content="User" />
+	<script type="text/javascript" >
+		var dataAtual = new Date();
+		var dataSetada = new Date(2007, 5, 15);
+
+		document.write("<br>"+dataAtual);
+		document.write("<br>"+dataSetada);
+		
+		const ANO = 12*30*24*60*60*1000;
+		const MES = 30*24*60*60*1000;
+		const DIAS = 24*60*60*1000;
+
+		function adicionarData(data, constante, valor)
+		{
+			var resultado = data.getTime()+valor*constante;
+			return new Date(resultado);
+			return valor
+			
+		}
+		
+		var dataFimCurso = new Date(2022, 1, 28);
+		document.write("<br> data inicial--->"+dataFimCurso);
+		document.write("<br> data + período em mes--->"+adicionarData(dataFimCurso,MES,6));
+		document.write("<br> data + período em mes--->"+adicionarData(dataFimCurso,MES,-6));
+		document.write("<br> data + período em dias--->"+adicionarData(dataFimCurso, DIAS, 179));
+		
+		function calcularIntervalo(data1, data2, constante)
+		{
+			//sempre absoluto positivo.
+			return Math.abs(parseInt((data1.getTime() - data2.getTime())/constante));
+		}
+		var dataA = new Date(1970, 1, 1);
+		var dataB = new Date(1990, 5, 6);
+		
+		var dataA = new Date(1970, 1, 1);
+		var dataB = new Date(1990, 5, 6);
+		
+		document.write("<br> diferença abs entre duas datas em MES--->"+calcularIntervalo(dataA, dataB, MES));
+		document.write("<br> diferença abs entre duas datas em ANO--->"+calcularIntervalo(dataA, dataB, ANO));
+
+
+	</script>
+	
+	<!-- Date: 2022-05-27 -->
+</head>
+<body>
+
+</body>
+</html>
+

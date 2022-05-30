@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index_document</title>
+	<meta name="author" content="User" />
+	<script type=text/javascript>
+	function manipularDocument()
+	{
+		/*alert("Função Manipuladora");
+		var botao = document.getElementById("botao1");
+		
+		with(botao){
+			value="Novo botão";
+			title="Meu comentário";	
+		}
+		*/
+		alert("Função Manipuladora");
+		var forms = document.forms;
+		for(var i = 0; forms.length; i++)
+		{
+			alert(forms[i].id)
+			
+		}
+		
+		
+	}
+		
+	</script>
+	
+	<!-- Date: 2022-05-29 -->
+</head>
+<body>
+	<input id="botao1" type="button" value="Meu botão">
+	<form id="form1"></form>
+	<form id="form2"></form>
+	<form id="form3"></form>
+		
+	<script type=text/javascript>
+		manipularDocument();	
+	</script>
+	
+</body>
+</html>
+
