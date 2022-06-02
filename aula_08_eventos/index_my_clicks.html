@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index_my_clicks</title>
+	<meta name="author" content="User" />
+	
+	<script>
+	var contador = 0;
+		function mudarImagem(){
+			var imagens = ["ImagemVermelho.png","ImagemAzul.png", "ImagemAmarelo.png", "imagemLaranja.png"]
+			contador = ++contador > 3 ? 0 : contador;
+			return imagens[contador];				
+		}
+		
+		function mostrarMenu(idMenuDinamico)
+		{
+
+			var menuDinamico = document.getElementById(idMenuDinamico)
+			{
+				menuDinamico.style.display = "block";
+				var imagens = document.images;
+				for(i = 0; i < imagens.length; i++){
+					if(imagens[i].id+"Dinamico" != idMenuDinamico)	
+						ocultarMenu(imagens[i].id+"Dinamico");
+					}
+				
+			}
+		}
+		
+		function ocultarMenu(idMenuDinamico)
+		{
+			var menuDinamico = document.getElementById(idMenuDinamico);
+			menuDinamico.style.display = "none";
+		}
+		
+	</script>
+	
+	
+	<!-- Date: 2022-06-02 -->
+</head>
+<body>
+	<p>
+		<img id="menu1" width="100" src="ImagemVermelho.png" onclick="this.src = mudarImagem()"
+			onmouseover="mostrarMenu(this.id+'Dinamico')">
+	</p>
+		<div id = "menu1Dinamico" style="display:none">
+			<a href = "#" >Opcao 1</a>
+			<p><a href = "#">Opcao 1.1</a></p>
+			<p><a href = "#">Opcao 1.2</a></p>
+			<p><a href = "#">Opcao 1.3</a></p>
+			
+		</div>
+	
+	<p>
+		<img id="menu2" width='100' src="ImagemAzul.png" onclick="this.src = mudarImagem()" onmouseover="mostrarMenu(this.id+'Dinamico')" onmousemove="alert('mouse movendo')">
+	</p>
+		<div id="menu2Dinamico" style="display: none">
+			<p><a href = "#">Opcao 2</a></p>
+			<p><a href = "#">Opcao 2.1</a></p>
+			<p><a href = "#">Opcao 2.2</a></p>
+			<p><a href = "#">Opcao 2.3</a></p>
+		</div>
+	
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>index_cliques</title>
+	<meta name="author" content="User" />
+	<script type=text/javascript>
+		function modificarTitulo()
+		{
+			document.title = document.getElementById("texto").value;
+		}
+		function validarEmail(){
+			var email = document.getElementById("texto").value;
+			if (email.indexOf("@") < 0 )
+			{
+				alert("Email inválido!");
+				document.getElementById("texto").value = "";
+			}else
+			{
+				alert("Email válido");
+			}
+		}
+		function validarNumeros(evt)
+		{
+			// o vento chamado foi onkeypress, esse evt é o objeto desse evento.
+			var codigo = evt.which;  
+			alert("Tecla: "+String.fromCharCode(codigo)+" Código : "+codigo);
+			// aceitar só números, no estudo de keypress vem o codigo do caracter
+			//mudou para keydown e keyup funciona mas só de um lado. no entanto menor e Maior dão diferente
+			//atualizar a validação 
+			/*
+			 * var num = parseInt(String.fromCharCode(codigo));
+			if(isNaN(num))
+				return false;
+			return true;
+			 */
+			/*funcionou a logica com onkeyup porque tava pegando rapido de mais, ai esse pegou deu tempo de pegar a digitação*/
+			/*var num = parseInt(String.fromCharCode(codigo));
+			if(isNaN(num))
+			{
+				var texto = document.getElementById("texto").value;
+			var teste = (String.fromCharCode(codigo).toLowerCase());
+				var posicao = texto.indexOf(String.fromCharCode(codigo)) < 0 ? texto.indexOf(String.fromCharCode(codigo).toLowerCase()) : texto.indexOf(String.fromCharCode(codigo));
+				alert("Posição "+posicao+ " Letra "+String.fromCharCode(codigo)+" teste tolowercase "+texto);
+				texto = texto.substring(0, posicao) + texto.substring(posicao+1, texto.length);
+				document.getElementById("texto").value = texto ; 					
+			}*/
+			
+			var num = parseInt(String.fromCharCode(codigo));
+			if(isNaN(num))
+			{
+				var texto = document.getElementById("texto").value;
+				for(var i = 0; i < texto.length; i++)
+				{
+					var aux = parseInt(texto.substr(i, 1));
+					if (isNaN(aux))
+					{
+						texto = texto.substring(0, i) + texto.substring(i+1, texto.length);
+						document.getElementById("texto").value = texto;
+					}
+						
+				}
+				
+			}			
+			
+		}
+		
+	</script>
+	
+	<!-- Date: 2022-05-30 -->
+</head>
+<body>	
+	<input id="texto" type="text" onkeyup="validarNumeros(event)">
+	
+	<!--input id="texto" type=text onkeypress="validarNumeros(event)"-->
+
+	<!-- input type=button value="OK" " -->
+	
+	<!--input type=button value="OK" ondblclick="validarEmail()">
+
+	<!--input type=button value="OK" onclick="validarEmail()"-->
+
+	 
+</body>
+</html>
+
