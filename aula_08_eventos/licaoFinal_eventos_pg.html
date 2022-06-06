@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>licaoFinal_eventos_pg</title>
+		<meta name="author" content="User" />
+		<!-- Date: 2022-06-05 -->		
+		<script>
+			function substituirImagem(elemento)
+			{
+				alert("Substituindo Imagem "+elemento.src.substring(elemento.src.lastIndexOf("/")+1, elemento.src.length));
+				var imagens = ["papelDeParedes.png", "mulher_Arvores.jpg"];
+				for (var i=0; i < imagens.length; i++) {
+				  //vem elemnto.src vem caminho completo.
+				  if(imagens[i] != elemento.src.substring(elemento.src.lastIndexOf("/")+1, elemento.src.length)){
+				  	elemento.src = imagens[i];
+				  	break;
+				  }
+				  	
+				};
+				
+			}
+			function verificarLarguraMonitor(){
+				alert('teste');
+				if(screen.width > window.innerWidth)
+					window.innerWidth = screen.width;
+			}
+			
+		</script>
+	</head>
+	<body onload="alert('Seja bem vindo')" onunload="alert('Até a próxima!')" onresize="verificarLarguraMonitor()">
+		<img src="papelDeParede.png" width="100%" onerror="substituirImagem(this)"/>
+
+	</body>
+</html>
+

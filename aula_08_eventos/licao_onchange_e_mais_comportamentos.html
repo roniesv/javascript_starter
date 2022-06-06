@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>licao_onchange_e_mais_comportamentos</title>
+	<meta name="author" content="User" />
+	<script type="text/javascript">
+		function formatarNome(elemento)
+		{
+			var nomeArray = elemento.value.split(" ");
+			var resultado = "";
+			for(var i = 0; i < nomeArray.length; i++)
+			{
+				if(nomeArray[i].length > 2)
+					resultado += nomeArray[i].substr(0,1).toUpperCase()+nomeArray[i].substring(1, nomeArray[i].length);	
+				else
+					resultado += nomeArray[i];
+				resultado +=" ";
+					
+			}
+			elemento.value = resultado;	
+		}
+		function realcarCampo(elemento){
+			elemento.style.backgroundColor = "yellow";
+		}
+		
+		function validarForm()
+		{
+				//alert('Inicio do validarForm');
+				var inputs = document.getElementsByTagName("input");
+				//alert('Qtd Forms'+inputs.length);
+
+				var resultado = true;
+				for(var i = 0; i < inputs.length; i++)
+				{
+				   if(inputs[i].value == null || inputs[i].value == "")
+				   {
+				      realcarCampo(inputs[i]);
+				      resultado = false; 	
+				   }
+				}
+				if(!resultado)
+					alert("Preencha todos os campos!")	;
+				
+				return resultado;
+			}
+		
+		
+	
+	</script>
+	
+	<!-- Date: 2022-06-02 onchange, onselect, onfocus, onblur, onsubmit, onreset-->
+</head>
+<body>
+	<form onreset="return confirm('Deseja realmente limpar o formulário?')" onsubmit="return validarForm()">
+	
+			<label for="inputNome">Nome:  </label>
+			<input id="inputNome" type="text" onblur="formatarNome(this)"></br>
+			
+						<!--input id="inputNome" type="text" onchange="formatarNome(this)"></input></br-->
+
+
+
+			<label for="inputData">Data Nasc.:</label>
+			<input id="inputData" type="text" onselect="alert('Selecionado o Texto.')"></br>
+			
+		<input type="submit" value="OK">
+		<input type="reset" value="Limpar">
+	</form>
+	
+</body>
+</html>
+
