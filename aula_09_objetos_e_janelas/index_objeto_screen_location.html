@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>index_objeto_screen_location</title>
+		<meta name="author" content="User" />
+		<!-- Date: 2022-06-06 -->
+		<script	type="text/javascript">
+			function mostrarResolucaoMonitor()
+			{
+				alert(screen.width+"x"+screen.height);
+			}
+			function monstrarLocation(){
+				document.getElementById("divLoc").style.display =  "block";
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="Monitor" onclick="mostrarResolucaoMonitor()" />
+		<input type="button" value="Location" onclick="monstrarLocation()"/>
+		<input type="button" value="Assign" onclick="location.assign('destino.html')"/>
+		<input type="button" value="Replace" onclick="location.replace('destino.html')"/>	
+		<div id="divLoc" style= "display: none">
+			<script>
+				
+				document.write("href:"+window.location.href+"</br>");
+					
+				document.write("host:"+window.location.host+"</br>");
+				document.write("hostname:"+window.location.hostname+"</br>");
+				document.write("pathname:"+window.location.pathname+"</br>");
+				document.write("search:"+window.location.search+"</br>");	
+	
+	
+	
+			</script>
+			
+			
+		</div>
+		
+	</body>
+</html>
+

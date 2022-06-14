@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>aula9_licao2_</title>
+		<meta name="author" content="User" />
+		<script type="text/javascript">
+			var janelaPopup;
+			var intervalo;
+			function abrirPopup(){
+				janelaPopup= open("destino.html", "imagem", "popup=yes, menubar=yes, location=yes, scrollbars=yes, resizable=no, width = 420, height = 370");
+				intervalo = setInterval("moverJanela()",500);
+				setTimeout("fecharPopup()", 10000);
+
+			}
+			function moverJanela(){
+				janelaPopup.moveBy(2,2);
+			}
+			function fecharPopUp(){
+				janelaPopup.close();
+			}
+		</script>
+		
+		<!-- Date: 2022-06-13 -->
+	</head>
+	<body>
+		<input type="button" value = "popup" onclick="abrirPopup()">
+		<input type="button" value = "fechar" onclick="fecharPopup()">
+		<div id="divBody">
+			
+		</div>
+	</body>
+</html>
+

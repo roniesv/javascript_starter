@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>destino</title>
+		<meta name="author" content="User" />
+		<script type="text/javascript">
+			var binario = 0;
+			function substituirImagem(){
+				var imagem = binario++%2 == 0 ?"../aula_08_eventos/mulher_Arvores.jpg":"../aula_08_eventos/papelDeParede.png";
+				document.getElementById("imagemDoc").src=imagem;
+				//temos daqui o opener disponível ...ref
+				opener.document.getElementById("divBody").innerHTML += imagem+"<br/>";
+			}
+			function liberarRecursos(){
+				opener.clearInterval(opener.intervalo);
+			}
+			//setInterval("substituirImagem()", 1000);
+		</script>
+		<!-- Date: 2022-06-13 -->
+	</head>
+	<body onunload="liberarRecursos()">
+	<img id="imagemDoc" src="../aula_08_eventos/papelDeParede.png" width="400" height="350" alt="Paisaagem silhuetas de uma arvore e vegetação" onclick="substituirImagem()"/>
+	<!--img id="imagemDoc" src="../aula_08_eventos/papelDeParede.png" width="400" height="350" alt="Paisaagem silhuetas de uma arvore e vegetação" onclick="substituirImagem()"/-->
+
+	</body>
+</html>
+
