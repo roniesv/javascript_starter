@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>javascript</title>
+		<meta name="author" content="User" />
+		<!-- Date: 2022-06-14 -->
+		<script type="text/javascript">
+			var img1 = new Image(200, 150);
+			img1.src = "logo.png";
+			var img2 = new Image(200, 150);
+			img2.src = "wb.png";
+		</script>
+	</head>
+	<body>
+		<img src="logo.png" width="200" height="150" onmouseover="this.src=img1.src" onmouseout="this.src=img2.src"/><br/>
+		<img src="logo.png" width="200" height="150" onmouseover="this.src='logo.png'" onmouseout="this.src='wb.png'"><br/>
+		<img src="img.png" width="200" height="150" onmouseover="this.src='img_over.png'" onmouseout="this.src='img.png'" onmousedown="location.assign('http://www.google.com')"><br/>
+		
+
+	</body>
+</html>
+
